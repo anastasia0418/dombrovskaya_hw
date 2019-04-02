@@ -12,10 +12,10 @@ import random
 print('Задание-1\n')
 lstGenerate = [random.randint(0, 100) for _ in range(5)]
 print('Сгенерированный список: ', lstGenerate)
-newList = []
-for i in lstGenerate:
-    i = i**2
-    newList.append(i)
+newList = [i**2 for i in lstGenerate]
+#for i in lstGenerate:
+   # i = i**2
+   # newList.append(i)
 print('Список возведенный в квадрат ', newList)
 
 # Задание-2:
