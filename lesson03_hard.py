@@ -2,7 +2,7 @@
 __author__ = 'Домбровская Анастасия Петровна'
 
 import os
-
+from collections import defaultdict
 # Задание-1:
 # Написать программу, выполняющую операции (сложение и вычитание) с простыми дробями.
 # Дроби вводятся и выводятся в формате:
@@ -114,4 +114,22 @@ for key, value in dicOtr.items():
 # Подсказка:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
+
+allfr = {}
+with open('fruits.txt', 'r', encoding='UTF-8-sig') as file:
+    for line in file:
+        for word in line.split():
+            if not word:
+                continue
+            word = word.lower()
+            if word[0] not in allfr:
+                allfr[word[0]] = list()
+            allfr[word[0]].append(word)
+for key in allfr:
+    allfr[key] = list(allfr[key])
+print(allfr)
+
+for key, value in allfr.items():
+    with open('fruits_' + key + '.txt', 'w', encoding='UTF-8-sig') as newfr:
+        newfr.write('\n'.join(value))
 
